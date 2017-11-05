@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def greeting_view(request):
     return HttpResponse("Hello World")
+
+def goodbye_view(request):
+    return HttpResponse("Goodbye Cruel World")
