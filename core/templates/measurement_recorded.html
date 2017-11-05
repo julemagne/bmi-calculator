@@ -21,7 +21,8 @@
       <th>BMI</th>
     </tr>
   </thead>
-    {% for measurement in measurements %}
+  {% for measurement in measurements %}
+  <tr>
     <td>{{ measurement.measured_at }}</td>
     <td>{{ measurement.height_in_meters }}</td>
     <td>{{ measurement.weight_in_kg }}</td>

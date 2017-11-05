@@ -21,6 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.greeting_view),
     url(r'^goodbye/$', views.goodbye_view),
-    url(r'^bmi/$', views.bmi),
+    url(r'^bmi/$', views.bmi_measurement),
     url(r'^measurement/$', views.bmi_measurement),
 ]
