@@ -6,10 +6,24 @@
   BMI Saved
 </h1>
 
-{% if bmi %}
-<h2>
-  Your BMI is {{bmi}}.
-</h2>
-{% endif %}
+<table>
+  <tr>
+    <th>Height</th>
+    <th>Weight</th>
+    <th>BMI</th>
+  </tr>
+    {% for measurement in measurements %}
+    <td>{{ measurement.height_in_meters }}</td>
+    <td>{{ measurement.weight_in_kg }}</td>
+    <td>{{ measurement.bmi }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<p>
+  <a href="/measurement/">
+    Save a new measurement
+  </a>
+</p>
 
 {% endblock %}
