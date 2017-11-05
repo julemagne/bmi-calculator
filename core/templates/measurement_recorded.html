@@ -2,28 +2,32 @@
 
 {% block body %}
 
-<h1>
+<h3>
   BMI Saved
-</h1>
-
-<table>
-  <tr>
-    <th>Height</th>
-    <th>Weight</th>
-    <th>BMI</th>
-  </tr>
-    {% for measurement in measurements %}
-    <td>{{ measurement.height_in_meters }}</td>
-    <td>{{ measurement.weight_in_kg }}</td>
-    <td>{{ measurement.bmi }}</td>
-  </tr>
-  {% endfor %}
-</table>
+</h3>
 
 <p>
   <a href="/measurement/">
     Save a new measurement
   </a>
 </p>
+
+<table class="table table-responsive table-bordered table-hover table-sm">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Date</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>BMI</th>
+    </tr>
+  </thead>
+    {% for measurement in measurements %}
+    <td>{{ measurement.measured_at }}</td>
+    <td>{{ measurement.height_in_meters }}</td>
+    <td>{{ measurement.weight_in_kg }}</td>
+    <td>{{ measurement.bmi }}</td>
+  </tr>
+  {% endfor %}
+</table>
 
 {% endblock %}
