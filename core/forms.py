@@ -1,4 +1,5 @@
 from django import forms
+from core.models import BmiMeasurement
 
 class BmiForm(forms.Form):
     """
@@ -8,3 +9,8 @@ class BmiForm(forms.Form):
     name = forms.CharField(required=False)
     height = forms.FloatField(label="Height in meters:", required=True, min_value=0)
     weight = forms.FloatField(label="Weight in kg:", required=True, min_value=0)
+
+class BmiMeasurementForm(forms.ModelForm):
+    class Meta:
+        model = BmiMeasurement
+        fields = ["height_in_meters", "weight_in_kg", "measured_at"]
