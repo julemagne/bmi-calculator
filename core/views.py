@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.core.urlresolvers import reverse
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
 from core.forms import BmiForm, BmiMeasurementForm
 from core.models import BmiMeasurement
@@ -7,6 +8,12 @@ from core.models import BmiMeasurement
 
 def greeting_view(request):
     return render(request, "greeting.html")
+
+def measurement(request, id):
+    if request.method == "POST":
+        get_object_or_404(BmiMeasurement, pk=id).delete()
+        # BmiMeasurement.objects.get(id="id").delete()
+        return redirect(reverse("all_measurements"))
 
 def measurements(request):
     measurements = BmiMeasurement.objects.order_by("measured_at").all()

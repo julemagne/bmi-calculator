@@ -20,7 +20,8 @@ from core import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.bmi_measurement),
-    url(r'^measurements/$', views.measurements),
     url(r'^bmi/$', views.bmi_measurement),
     url(r'^measurement/$', views.bmi_measurement),
+    url(r'^measurements/$', views.measurements, name="all_measurements"),
+    url(r'^measurements/(?P<id>\d+)/$', views.measurement, name="delete_measurement"),
 ]

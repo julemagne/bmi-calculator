@@ -14,6 +14,7 @@
       <th>Weight</th>
       <th>BMI</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   {% for measurement in measurements %}
@@ -22,7 +23,14 @@
     <td>{{ measurement.height_in_meters }}</td>
     <td>{{ measurement.weight_in_kg }}</td>
     <td>{{ measurement.bmi }}</td>
-    <td>Delete</td>
+    <td><a href="{% url 'delete_measurement' id=measurement.id %}">Details</a></td>
+    <td class="text-center">
+      <form action="/measurements/{{measurement.id}}/" method="post">
+		    {% csrf_token %}
+				<input type="hidden" name="id" value="{{measurement.id}}"/>
+			  <input type="submit" class="btn btn-sm btn-outline-secondary btn-block" value="Delete">
+			</form>
+    </td>
   </tr>
   {% endfor %}
 </table>
