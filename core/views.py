@@ -8,8 +8,9 @@ from core.models import BmiMeasurement
 def greeting_view(request):
     return render(request, "greeting.html")
 
-def goodbye_view(request):
-    return HttpResponse("Goodbye Cruel World")
+def measurements(request):
+    measurements = BmiMeasurement.objects.order_by("measured_at").all()
+    return render(request, "measurements.html", {"measurements": measurements})
 
 def bmi(request):
     if request.method == "POST":

@@ -13,4 +13,4 @@ class BmiForm(forms.Form):
 class BmiMeasurementForm(forms.ModelForm):
     class Meta:
         model = BmiMeasurement
-        fields = ["height_in_meters", "weight_in_kg", "measured_at"]
+        fields = ["id", "height_in_meters", "weight_in_kg", "measured_at"]
